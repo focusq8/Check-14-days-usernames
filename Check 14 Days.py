@@ -6,8 +6,11 @@ import random
 print("Check 14 Days usernames in Instagram \n")
 
 random_choose = "abcdefghijklmnopqrwstuvwxyz1234567890"
-
-file_username = open("users.txt", "r")
+try:
+	file_username = open("users.txt", "r")
+except FileNotFoundError:
+	print ("please make file users.txt")
+	input()
 
 while 1:
 	email = random.choice(random_choose)+random.choice(random_choose)+random.choice(random_choose)+random.choice(random_choose)+random.choice(random_choose)+random.choice(random_choose)+"@gmail.com"
