@@ -3,14 +3,15 @@ import requests
 import uuid
 import random
 
-print("Check 14 Days usernames in Instagram \n")
+print("Check 14 Days usernames in Instagram \n\n\n")
 
 random_choose = "abcdefghijklmnopqrwstuvwxyz1234567890"
 try:
 	file_username = open("users.txt", "r")
 except FileNotFoundError:
-	print ("please make file users.txt")
-	input()
+	# print ("please make file users.txt")
+	# input()
+	exit()
 
 while 1:
 	email = random.choice(random_choose)+random.choice(random_choose)+random.choice(random_choose)+random.choice(random_choose)+random.choice(random_choose)+random.choice(random_choose)+"@gmail.com"
@@ -18,6 +19,7 @@ while 1:
 	
 	username = file_username.readline().split("\n")[0]
 	if username == "":
+		input("\n\n\nPlease Press Enter To Save The File")
 		exit()
 	  
 	uid = str(uuid.uuid4())
@@ -55,7 +57,8 @@ while 1:
 		print(f"@{username} has Not 14 Days you can change it now")
 		with open("Not 14 Days.txt", "a") as file:
 			file.write(f"{username}\n")
-	
+		
+		
 	else:
-		print(f"Error >>  @{username}")
-		print(request_get.text)
+		print(f"No User Found >>  @{username}")
+		# print(request_get.text)
